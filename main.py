@@ -74,8 +74,7 @@ for _contact in contacts:
         time.sleep(1)
         
 
-end = time.time()
-print("Total execution time: {end - start}")
+print("Total execution time: {0:.2f}".format(time.time() - execution_start_time))
 
 # wait for all messages to get delivered (10 seconds)
 time.sleep(10)
