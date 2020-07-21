@@ -14,7 +14,6 @@ pip install selenium
 
 
 ## Usage
-To run:
 ```bash
 python main.py
 ```
