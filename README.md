@@ -1,4 +1,4 @@
-# whatsapp_bulk_sms_sender
+# whatsapp_bulk_sms_sender [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
 Python script to read contact information from csv and send WhatsApp messages to the users
 
 ### Things to take care of while running this
@@ -9,13 +9,13 @@ Python script to read contact information from csv and send WhatsApp messages to
 ## Installation
 To install [selenium](https://pypi.org/project/selenium/), simply:
 ```bash
-pip install selenium
+pip3 install selenium
 ```
 
 
 ## Usage
 ```bash
-python main.py
+python3 main.py
 ```
 
 
