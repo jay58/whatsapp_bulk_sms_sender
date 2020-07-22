@@ -2,9 +2,9 @@
 Python script to read contact information from csv and send WhatsApp messages to the users
 
 ### Things to take care of while running this
-1. You need to update defaulter contact where you would be sending the WhatsApp APIs, on which you will click and open the unsaved contacts chat.
-2. Update the contacts in csv without country code.
-3. Update country code in main.py file.
+1. Update the contacts in csv without country code.
+2. Update country code in main.py file.
+
 
 ## Installation
 To install [selenium](https://pypi.org/project/selenium/), simply:
