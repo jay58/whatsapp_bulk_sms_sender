@@ -10,13 +10,26 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 execution_start_time = time.time()
 
 # change these parameters
-promotional_message = "Hi this is Jay, testing whatsapp bulk sms sender hack. If you like it give a *thumbs up!*"
+promotional_message = "Hi this is Jay, testing whatsapp bulk sms sender hack 2.0. If you like it give a *thumbs up!*"
 filename = "contacts_sheet.csv"
-defaulter_contact_name = "Ren"
 country_code = "91"
 
 # constants
-partial_text = "https://api.whatsapp.com/send?phone=" + country_code
+partial_execution_script = """
+var elementExists = document.getElementById("custom-link-identifier");
+if (elementExists != null) {
+    elementExists.remove()
+}
+var a = document.createElement("a");
+var text = document.createTextNode("link")
+a.appendChild(text);
+a.setAttribute("href",'%s');
+a.setAttribute("id",'custom-link-identifier');
+document.getElementById("main").appendChild(a);
+document.getElementById("custom-link-identifier").click();
+"""
+
+partial_whatsapp_api = "https://api.whatsapp.com/send?phone=" + country_code
 contacts = []
 
 # read the csv file to get all the contacts
@@ -31,34 +44,20 @@ print("Scan QR Code, And then press Enter")
 input()
 print("Logged In")
 
-# search defaulter
-inp_xpath_search = '//*[@id="side"]/div[1]/div/label/div/div[2]'
-input_box_search = WebDriverWait(driver, 50).until(lambda driver: driver.find_element_by_xpath(inp_xpath_search))
-input_box_search.click()
-time.sleep(1)
-input_box_search.send_keys(defaulter_contact_name)
+# find the first contact in chat
+first_contact_in_chat = driver.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[1]')
+first_contact_in_chat.click()
 time.sleep(1)
 
+# iterate through each message and send message
 for _contact in contacts:
-    # find the defaulter and open his/her chat
-    defaulter_contact_select = driver.find_element_by_xpath("//span[@title='"+defaulter_contact_name+"']")
-    defaulter_contact_select.click()
-    inp_xpath = '//*[@id="main"]/footer/div[1]/div[2]/div/div[2]'
-    input_box = driver.find_element_by_xpath(inp_xpath)
-    time.sleep(1)
-
-    # send api.whatsapp.com link to the defaulter
-    whatsapp_api_text = partial_text + _contact
-    input_box.send_keys(whatsapp_api_text + Keys.ENTER)
+    whatsapp_api_text = partial_whatsapp_api + _contact
+    execution_script = partial_execution_script %(whatsapp_api_text)
+    driver.execute_script(execution_script)
     time.sleep(1)
     
-    # click on whatsapp link
-    sent_text = driver.find_element_by_xpath("//a[@title='"+whatsapp_api_text+"']")
-    sent_text.click()
-    time.sleep(1)
-    
-    # check if the contact is whatsapp number or not
     try:
+        # check if the contact is whatsapp number or not
         ok_button_inp_xpath = '//*[@id="app"]/div/span[2]/div/span/div/div/div/div/div/div[2]/div'
         ok_button = driver.find_element_by_xpath(ok_button_inp_xpath)
         ok_button.click()
