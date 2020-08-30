@@ -2,8 +2,9 @@
 Python script to read contact information from csv and send WhatsApp messages to the users
 
 ### Things to take care of while running this
-1. Update the contacts in csv without country code.
-2. Update country code in main.py file.
+1. Update promotional message as per your needs.
+2. Update the contacts list in csv without country code.
+3. Update country code in main.py file.
 
 
 ## Installation
