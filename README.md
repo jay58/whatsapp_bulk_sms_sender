@@ -8,10 +8,12 @@ Python script to read contact information from csv and send WhatsApp messages to
 
 
 ## Installation
-To install [selenium](https://pypi.org/project/selenium/), simply:
+Install requirements:
 ```bash
-pip3 install selenium
+pip3 install -r requirements.txt
 ```
+
+Install [Chrome Webdriver](https://chromedriver.chromium.org/downloads) and copy the file into root folder of the project
 
 
 ## Usage
