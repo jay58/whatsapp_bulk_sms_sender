@@ -12,7 +12,6 @@ execution_start_time = time.time()
 # change these parameters
 promotional_message = "Hi this is Jay, testing whatsapp bulk sms sender hack 2.0. If you like it give a *thumbs up!*"
 filename = "contacts_sheet.csv"
-country_code = "91"
 
 # constants
 partial_execution_script = """
@@ -29,7 +28,7 @@ document.getElementById("main").appendChild(a);
 document.getElementById("custom-link-identifier").click();
 """
 
-partial_whatsapp_api = "https://api.whatsapp.com/send?phone=" + country_code
+partial_whatsapp_api = "https://api.whatsapp.com/send?phone="
 contacts = []
 
 # read the csv file to get all the contacts
@@ -38,7 +37,7 @@ with open(filename, 'r') as contacts_file:
     
 
 # start script
-driver = webdriver.Chrome()
+driver = webdriver.Chrome("__PATH__")
 driver.get("https://web.whatsapp.com")
 print("Scan QR Code, And then press Enter")
 input()
